@@ -1,6 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+
+import { StateProvider, useStateContext } from "./StateProvider";
+
+function CounterContainer() {
+  return (
+    <StateProvider>
+      <Counter />
+    </StateProvider>
+  );
+}
+
+function Counter() {
+  const { count, incrementCounter, decrementCounter } = useStateContext();
+  return (
+    <>
+      <p>{count}</p>
+      <button onClick={incrementCounter}>Increment</button>
+      <button onClick={decrementCounter}>Decrement</button>
+    </>
+  );
+}
 
 function App() {
   return (
@@ -18,6 +39,7 @@ function App() {
         >
           Learn React
         </a>
+        <CounterContainer />
       </header>
     </div>
   );
