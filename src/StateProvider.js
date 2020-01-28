@@ -18,7 +18,7 @@ function reducer(state, action) {
 const StateProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, { count: 0 });
 
-  const incrementCounter = screenName => {
+  const incrementCounter = () => {
     dispatch({ type: "INC" });
   };
 
